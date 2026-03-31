@@ -66,6 +66,15 @@
             color: var(--blue);
             line-height: 1.2;
         }
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+            margin: .65rem auto 0;
+        }
         .section-header p {
             margin-top: .75rem;
             color: var(--gray-500);
@@ -137,19 +146,20 @@
             padding: 7rem 0 5rem;
         }
 
-        /* Decorative blobs */
-        .blob {
-            position: absolute; border-radius: 50%;
-            background: var(--orange); opacity: .055; pointer-events: none;
+        /* Dot grid texture */
+        #hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,.18) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
         }
-        .blob-1 { width: 520px; height: 520px; top: -140px; right: -110px; }
-        .blob-2 { width: 320px; height: 320px; bottom: 8%; left: -90px; }
-        .blob-3 { width: 180px; height: 180px; top: 35%; right: 18%; }
 
-        /* Pipe decoration SVG */
+        /* Water ripple SVG */
         .hero-deco {
-            position: absolute; right: 5%; bottom: 15%;
-            opacity: .04; pointer-events: none;
+            position: absolute; right: -80px; top: 50%;
+            transform: translateY(-50%);
+            opacity: .07; pointer-events: none;
         }
 
         .hero-content { position: relative; z-index: 2; max-width: 680px; }
@@ -491,6 +501,83 @@
         .zone-banner span { font-size: .88rem; opacity: .8; }
 
         /* ============================================================
+           CTA BAND
+        ============================================================ */
+        .cta-band {
+            background: linear-gradient(135deg, #e85d04 0%, #f97316 60%, #fb923c 100%);
+            padding: 2.25rem 0;
+        }
+        .cta-band-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .cta-band-text {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            color: white;
+        }
+        .cta-band-text i {
+            font-size: 1.9rem;
+            opacity: .9;
+            flex-shrink: 0;
+        }
+        .cta-band-text strong {
+            display: block;
+            font-size: 1.15rem;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+        .cta-band-text span {
+            display: block;
+            font-size: .88rem;
+            opacity: .85;
+            margin-top: .2rem;
+        }
+        .cta-band-actions {
+            display: flex;
+            gap: .75rem;
+            flex-shrink: 0;
+        }
+        .cta-band-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .7rem 1.4rem;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: .95rem;
+            text-decoration: none;
+            transition: all var(--t);
+        }
+        .cta-band-call {
+            background: white;
+            color: #e85d04;
+        }
+        .cta-band-call:hover {
+            background: #fff7ed;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,.18);
+        }
+        .cta-band-wa {
+            background: rgba(255,255,255,.18);
+            color: white;
+            border: 1.5px solid rgba(255,255,255,.4);
+        }
+        .cta-band-wa:hover {
+            background: rgba(255,255,255,.28);
+            transform: translateY(-2px);
+        }
+        @media (max-width: 640px) {
+            .cta-band-inner { flex-direction: column; text-align: center; }
+            .cta-band-text  { flex-direction: column; gap: .6rem; }
+            .cta-band-actions { width: 100%; justify-content: center; }
+        }
+
+        /* ============================================================
            MENTIONS LÉGALES MODAL
         ============================================================ */
         .modal-overlay {
@@ -556,6 +643,7 @@
         #contact { background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 100%); }
         #contact .section-header .badge { background: rgba(255,255,255,.15); color: white; }
         #contact .section-header h2 { color: white; }
+        #contact .section-header h2::after { background: rgba(255,255,255,.5); }
         #contact .section-header p  { color: rgba(255,255,255,.65); }
 
         .contact-inner {
@@ -660,6 +748,26 @@
         }
         .footer-nav a { font-size: .85rem; color: rgba(255,255,255,.45); transition: color var(--t); }
         .footer-nav a:hover { color: white; }
+        .footer-cta {
+            display: flex; gap: .75rem; flex-wrap: wrap; justify-content: center;
+        }
+        .footer-btn-call, .footer-btn-wa {
+            display: inline-flex; align-items: center; gap: .5rem;
+            padding: .6rem 1.3rem; border-radius: 999px;
+            font-weight: 700; font-size: .9rem; text-decoration: none;
+            transition: all var(--t);
+        }
+        .footer-btn-call {
+            background: var(--accent);
+            color: white;
+        }
+        .footer-btn-call:hover { background: var(--accent-dk); transform: translateY(-1px); }
+        .footer-btn-wa {
+            background: rgba(255,255,255,.08);
+            color: rgba(255,255,255,.85);
+            border: 1px solid rgba(255,255,255,.18);
+        }
+        .footer-btn-wa:hover { background: rgba(255,255,255,.14); transform: translateY(-1px); }
         .footer-copy { font-size: .8rem; }
         .footer-addr { font-size: .76rem; opacity: .4; }
 
